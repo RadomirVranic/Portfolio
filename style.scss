@@ -1,0 +1,1109 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+@keyframes fade{
+    0%{opacity: 0;}
+    50%{visibility: 0;}
+    100%{visibility: 1;}
+}
+
+@keyframes up{
+    0%{bottom: -5%;}
+    100%{bottom: 4%;}
+}
+
+$or: orange;
+$b: black;
+
+$o: 1200px;
+$t: 920px;
+$th: 760px;
+$f: 480px;
+
+@mixin o {
+    @media (max-width: #{$o}){
+        @content;
+    }
+}
+
+@mixin t {
+    @media (max-width: #{$t}){
+        @content;
+    }
+}
+
+
+@mixin th {
+    @media (max-width: #{$th}){
+        @content;
+    }
+}
+
+@mixin f {
+    @media (max-width: #{$f}){
+        @content;
+    }
+}
+
+html{
+    font-family: 'Bree Serif', serif;
+    scroll-behavior: smooth;
+}
+
+body{
+
+    #goUp{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        bottom: 4%;
+        right: 2.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-name: up;
+        animation-duration: 2s; 
+
+        a{
+            color: $or;
+            font-size: 3em;
+            transition: 0.5s;
+        }
+
+        a:hover{
+            color: darken($or, 10%);
+            transform: translateY(5px);
+        }
+    }
+}
+
+body{
+
+    #fix{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+
+    #first{
+        width: 100%;
+        background-color: black;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: fixed;
+        top: 0px;
+
+        #network{
+            width: 20%;
+            display: flex;
+            justify-content: space-around;
+            margin-right: 2%;
+
+            @include o{
+                width: 30%;
+            }
+
+            @include t{
+                width: 40%;
+            }
+
+            @include th{
+                width: 100%;
+            }
+
+            a{
+                margin: 8% 0%;
+                transition: 0.7s;
+
+                @include o{
+                    margin: 4% 0%;
+                }
+
+                @include t{
+                    margin: 2% 0%;
+                }
+
+                i{
+                    font-size: 2.3em;
+                    transition: 0.5s;
+
+                    @include th{
+                        font-size: 1.8em;
+                    }
+                }
+
+                i:hover{
+                    transform: translateY(2px);
+                }
+
+                .f1{
+                    color: blue;
+                }
+
+                .f1:hover{
+                    color: lighten(blue, 15%);
+                }
+
+
+                .f2{
+                    color: lighten(purple, 5%);
+                }
+
+                .f2:hover{
+                    color: lighten(purple, 15%);
+                }
+
+                .f3{
+                    color: $or;
+                }
+
+                .f3:hover{
+                    color: lighten($or, 15%);
+                }
+
+                .f4{
+                    color: red;
+                }
+
+                .f4:hover{
+                    color: lighten(tomato, 5%);
+                }
+            }
+
+        }
+    }
+
+    nav{
+        width: 100%;
+        border-bottom: 4px solid black;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 5%;
+        background-color: white;
+
+        @include th{
+            flex-direction: column;
+        }
+
+        #leftSide{
+            width: 30%;
+            display: flex;
+            align-items: center;
+
+            @include o{
+                width: 40%;
+            }
+
+            @include th{
+                width: 80%;
+                flex-direction: column;
+            }
+
+            #logo{
+                width: 20%;
+
+                @include o{
+                    width: 30%;
+                }
+
+                @include t{
+                    width: 25%;
+                }
+
+                @include th{
+                    margin-top: 5%;
+                }
+
+                @include f{
+                    width: 40%;
+                }
+
+                img{
+                    width: 100%;
+                    
+
+                }
+            }
+
+            p{
+                font-size: 2.5em;
+                padding-left: 30px;
+                font-weight: bold;
+
+                @include o{
+                    font-size: 1.8em;
+                }
+
+                @include t{
+                    font-size: 1.5em;
+                }
+
+                @include th{
+                    display: none;
+                }
+            }
+        }
+
+        #rightSide{
+            width: 40%;
+            
+            @include o{
+                width: 50%;
+            }
+
+            @include th{
+                width: 90%;
+            }
+
+            @include f{
+                width: 95%;
+            }
+
+            ul{
+                display: flex;
+                list-style-type: none;
+                justify-content: space-around;
+                align-items: center;
+
+                @include f{
+                    justify-content: space-between;
+                }
+
+                li{
+                    margin: 4% 0%;
+
+                    @include o{
+                        margin: 7% 0%;
+                    }
+
+                    @include th{
+                        margin: 0% 0% 5% 0%;
+                    }
+
+                    a{
+                        text-decoration: none;
+                        color: $b;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        transition: 0.6s;
+
+                        @include o{
+                            font-size: 1.3em;
+                        }
+
+                        @include t{
+                            font-size: 1.2em;
+                        }
+
+                        @include f{
+                            font-size: 0.9em;
+                        }
+                    }
+
+                    a:hover{
+                        color: lighten($or, 15%);
+                        text-shadow: 1.2px 1.2px darken($or, 30%);
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+body{
+
+    #begin{
+        width: 100%;
+        background-image: url("img/bg.jpeg");
+        background-size: cover;
+        background-position-x: -40px;
+        background-position-y: -80%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+
+        @include o{
+            background-position-x: 15%;
+            background-position-y: 90px;
+        }
+
+        #shade{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.04);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            #sides{
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10%;
+
+                @include t{
+                    width: 95%;
+                }
+
+                @include th{
+                    flex-direction: column;
+                }
+
+                #left1{
+                    width: 40%;
+
+                    @include t{
+                        width: 45%;
+                    }
+
+                    @include th{
+                        width: 75%;
+                        text-align: center;
+                        margin-top: 35%;
+                    }
+
+                    @include f{
+                        margin-top: 50%;
+                        width: 100%;
+                    }
+
+                    h1{
+                        font-size: 3.7em;
+                        animation-name: fade;
+                        animation-duration: 3s;
+
+                        @include o{
+                            font-size: 2.3em;
+                        }
+
+                        @include f{
+                            font-size: 2em;
+                        }
+                    }
+
+                    p{
+                        font-size: 1.6em;
+                        padding-top: 1.5%;
+                        color: $or;
+                        text-shadow: 1.2px 1.2px lighten($or,25%);
+                        animation-name: fade;
+                        animation-duration: 5s;
+
+                        @include o{
+                            font-size: 1.3em;
+                        }
+
+                        @include f{
+                            font-size: 1.1em;
+                        }
+                    }
+                }
+
+                #right1{
+                    width: 50%;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    @include th{
+                        width: 60%;
+                        margin-top: 10%;
+                    }
+
+
+                    #image{
+                        width: 50%;
+                        margin-right: 7%;
+                        height: 500px;
+                        border: 5px solid black;
+                        background-image: url("img/ja.png");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+
+                        @include o{
+                            width: 80%;
+                        }
+
+                        @include th{
+                            height: 450px;
+                        }
+
+                        @include t{
+                            width: 90%;
+                            margin-right: 2%;
+                        }
+
+                        @include f{
+                            height: 250px;
+                        }
+
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+body{
+
+    #skills{
+        width: 100%;
+        background-color: $b;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+
+        h2{
+            font-size: 3.6em;
+            color: $or;
+            padding-top: 12%;
+        }
+
+        #circles{
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 7% 0%;
+
+            @include o{
+                width: 95%;
+            }
+
+            .circle{
+                width:20%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @include t{
+                    width: 50%;
+                    margin: 5% 0%;
+                }
+
+                @include f{
+                    width: 90%;
+                }
+
+                .circle1{
+                    width: 150px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 150px;
+                    background-color: lighten(black, 90%);
+                    border-radius: 50%;
+
+                    .circle2{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        background-color: lighten($or,15%);
+
+                        i{
+                            font-size: 3em;
+                        }
+
+                        .b1{
+                            color: tomato;
+                        }
+
+                        .b2{
+                            color: lighten(blue,10%);
+                        }
+
+                        .b3{
+                            color: purple;
+                        }
+
+                        .b4{
+                            color: red;
+                        }
+                    }
+
+                    .c1{
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .c3{
+                        width: 105px;
+                        height: 105px;
+                    }
+
+                    .c4{
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
+
+                p{
+                    font-size: 1.5em;
+                    padding-top: 3%;
+                }
+
+            }
+        }
+    }
+}
+
+body{
+
+    #projects{
+        width: 100%;
+        background-color: lighten(grey,40%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h2{
+        font-size: 3.6em;
+        color: $or;
+        padding-top: 12%;
+
+        @include f{
+            font-size: 3.3em;
+        }
+    }
+
+    #projectBoxes{
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 7% 0%;
+
+        @include o{
+            width: 95%;
+        }
+
+        .projectBox{
+            width: 25%;
+            background-color: $or;
+            height: 300px;
+
+            @include o{
+                width: 31%;
+            }
+
+            @include t{
+                width: 40%;
+                margin: 5% 0%;
+            }
+
+            @include th{
+                width: 70%;
+            }
+
+            @include f{
+                width: 90%;
+            }
+
+
+
+
+            .imageSite{
+                width: 100%;
+                height: 75%;
+                background-color: blue;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+
+            }
+
+            .img0{
+                background-image: url("img/tesla.png");
+            }
+
+            .img1{
+                background-image: url("img/portfolio.png");
+                background-position-x: -23px;
+
+                @include th{
+                    background-position-x: 0px;
+                }
+            }
+
+            .img2{
+                background-image: url("img/commingsoon.png");
+            }
+
+            a{
+
+                text-decoration: none;
+
+            .projectText{
+                width: 100%;
+                height: 25%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.7s;
+
+                &:hover{
+                    background-color: lighten($or,20%);
+                }
+
+                &:hover p{
+                    transform: scale(1.07);
+                }
+
+                p{
+                    font-size: 1.5em;
+                    color: black;
+                    transition: 1s;
+                    font-weight: bold;
+                }
+            }
+        }
+        }
+
+    }
+}
+
+body{
+
+    #bio{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $b;
+        color: #fff;
+
+        h2{
+
+            @include f{
+                font-size: 2.6em;
+            }
+        }
+
+        #textImages{
+            width: 80%;
+            margin: 7% 0%;
+
+            @include th{
+                width: 90%;
+            }
+
+            @include f{
+                width: 95%;
+            }
+
+            #bioText{
+                width: 90%;
+                margin: 0px auto;
+
+
+                p{
+                    font-size: 1.4em;
+                    line-height: 40px;
+                }
+            }
+
+            #bioImages{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin: 5% 0%;
+
+                .bioImage{
+                    width: 20%;
+
+                    @include o{
+                        width: 25%;
+                    }
+
+                    @include th{
+                        width: 30%;
+                    }
+
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body{
+
+    #contact{
+        width: 100%;
+        background-color: lighten(black, 95%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #contactForm{
+            width: 85%;
+            margin: 7% 0%;
+
+            @include th{
+                width: 95%;
+            }
+
+            form{
+                width: 80%;
+                margin: 0px auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                border: 4px solid black;
+                border-radius: 10px;
+                padding: 5% 0%;
+
+                @include t{
+                    width: 95%;
+                }
+
+                #formTop{
+                    width: 70%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    @include th{
+                        width: 85%;
+                    }
+
+                    @include f{
+                        width: 100%;
+                    }
+
+                    @include f{
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                    }
+
+                    #leftPart{
+                        display: flex;
+                        flex-direction: column;
+                        width: 40%;
+
+                        @include f{
+                            margin-bottom: 7%;
+                            width: 70%;
+                        }
+
+                        label{
+                            font-size: 1.6em;
+                            padding-bottom: 7%;
+
+                            @include f{
+                                font-size: 1.2em;
+                            }
+                        }
+
+                        .field{
+                            padding: 2%;
+                            width: 80%;
+
+                            @include th{
+                                width: 100%;
+                            }
+                        }
+
+                        .field::placeholder{
+                            font-family: 'Bree Serif', serif;
+                        }
+                    }
+
+                    #rightPart{
+                        width: 40%;
+                        display: flex;
+                        flex-direction: column;
+
+                        @include f{
+                            width: 70%;
+                        }
+
+                        label{
+                            font-size: 1.6em;
+                            padding-bottom: 7%;
+
+                            @include f{
+                                font-size: 1.2em;
+                            }
+                        }
+
+                        .field{
+                            padding: 2%;
+                            width: 90%;
+
+                            @include th{
+                                width: 100%;
+                            }
+                        }
+
+                        .field::placeholder{
+                            font-family: 'Bree Serif', serif;
+                        }
+                    }
+                }
+
+                #formMid{
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+
+                    @include th{
+                        margin: 5% 0%;
+                    }
+
+                    label{
+                        text-align: center;
+                        font-size: 1.6em;
+                        padding-top: 4%;
+                    }
+
+                    #sub{
+                        width: 45%;
+                        padding: 1%;
+                        margin: 2% auto;
+
+                        @include o{
+                            width: 60%;
+                        }
+
+                        @include th{
+                            width: 80%;
+                        }
+
+                        @include f{
+                            width: 100%;
+                            padding: 3% 2%;
+                        }
+                    }
+
+                    #sub::placeholder{
+                        font-family: 'Bree Serif', serif;
+                    }
+                }
+
+                #formBot{
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 2% 0%;
+
+                    @include f{
+                        width: 85%;
+                    }
+
+                    label{
+                        font-size: 1.6em;
+                        padding-bottom: 3%;
+                        text-align: center;
+                    }
+
+                    #aria{
+                        padding: 1% 1%;
+                        width: 50%;
+                        resize: none;
+                        margin: 0px auto;
+
+                        @include o{
+                            width: 80%;
+                        }
+
+                        @include th{
+                            width: 100%;
+                        }
+                    }
+
+                    #aria::placeholder{
+                        font-family: 'Bree Serif', serif;
+                    }
+                }
+
+                #buttonn{
+                    width: 70%;
+
+                    #button1{
+                        display: block;
+                        margin: 3% auto;
+                        padding: 1.5% 7%;
+                        border: none;
+                        border-radius: 7px;
+                        background-color: darken($or, 5%);
+                        color: white;
+                        font-weight: bold;
+                        font-size: 1.4em;
+                        transition: 0.6s;
+                        border: 4px solid lighten($or, 15%);
+
+                        @include o{
+                            padding: 3% 12%;
+                        }
+
+                        @include th{
+                            padding: 5% 17%;
+                        }
+
+                        @include f{
+                            margin-top: 15%;
+                        }
+                    }
+
+                    #button1:hover{
+                        background-color: $or;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body{
+
+    footer{
+        width: 100%;
+        background-color: $b;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 3% 0%;
+
+        @include f{
+            flex-direction: column;
+        }
+
+        #info{
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            @include o{
+                width: 60%;
+            }
+
+            @include f{
+                margin: 5% 0%;
+            }
+            
+            
+
+            .infoBox{
+                width: 32%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @include t{
+                    width: 40%;
+                    margin: 3% 0%;
+                }
+
+                @include th{
+                    width: 60%;
+                }
+
+                i{
+                    font-size: 3em;
+                    color: $or;
+
+                }
+
+                p{
+                    font-size: 1.3em;
+                    padding: 3% 0%;
+
+                    @include o{
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+
+        #links{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @include th{
+                width: 35%;
+            }
+
+            @include f{
+                width: 90%;
+                margin: 8% 0%;
+            }
+
+            p{
+                font-size: 2.2em;
+                color: $or;
+                font-weight: bold;
+                padding-bottom: 4%;
+
+                @include o{
+                    font-size: 2em;
+                }
+
+                @include t{
+                    font-size: 1.7em;
+                }
+
+                @include th{
+                    font-size: 1.4em;
+                }
+
+                @include f{
+                    font-size: 1.6em;
+                }
+            }
+
+            a{
+                text-decoration: none;
+                font-size: 1.5em;
+                padding-bottom: 1.5%;
+                color: white;
+                transition: 0.7s;
+
+                @include t{
+                    font-size: 1.4em;
+                    padding-bottom: 3%;
+                }
+
+                @include th{
+                    font-size: 1.1em;
+                }
+
+                @include f{
+                    font-size: 1.3em;
+                }
+            }
+
+            a:hover{
+                color: $or;
+            }
+        }
+    }
+}
